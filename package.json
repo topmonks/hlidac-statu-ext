@@ -1,0 +1,12 @@
+{
+  "name": "hlidac-statu-ext",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/topmonks/hlidac-statu-ext.git",
+  "author": "TopMonks",
+  "license": "EPL-2.0",
+  "devDependencies": {
+    "prettier": "^2.1.2",
+    "web-ext": "^5.1.0"
+  }
+}

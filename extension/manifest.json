@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "name": "Hlídač státu do prohlížeče",
+  "description": "Pomožte Hlídači Státu otevřít důležitá data.",
+  "homepage_url": "https://www.hlidacstatu.cz",
+  "icons": {
+    "128": "assets/icon128.png"
+  },
+  "author": "TopMonks",
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "page_action": {
+    "default_icon": {
+      "128": "assets/icon128.png"
+    },
+    "default_title": "Poslat data Hlídači Státu"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://dip.mzcr.cz/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "https://www.hlidacstatu.cz/api/v2/nemocnice"
+  ],
+  "web_accessible_resources": [
+    "*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{280447e3-65cd-4902-a700-44a88eabc9ae}"
+    }
+  }
+}
