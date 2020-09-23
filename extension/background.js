@@ -1,10 +1,14 @@
 const apiV2 = new URL("https://www.hlidacstatu.cz/api/v2/");
 
 chrome.browserAction.onClicked.addListener((tab) => {
-  chrome.tab.sendMessage(tab.id, { action: "Download" }, async (message) => {
+  chrome.tabs.sendMessage(tab.id, { action: "Download" }, async (message) => {
     console.group("Hlídač Státu");
-    console.log("Got response", message);
     try {
+      if (!message) {
+        console.warn("Nothing to send");
+        return;
+      }
+      console.log("Got response", message);
       const resp = await fetch(new URL("nemocnice", apiV2), {
         method: "POST",
         body: JSON.stringify(message),
