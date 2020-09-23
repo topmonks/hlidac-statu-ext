@@ -1,12 +1,20 @@
 {
   "name": "hlidac-statu-ext",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/topmonks/hlidac-statu-ext.git",
+  "bugs": {
+    "url": "https://github.com/topmonks/hlidac-statu-ext/issues"
+  },
   "author": "TopMonks",
   "license": "EPL-2.0",
   "devDependencies": {
     "prettier": "^2.1.2",
     "web-ext": "^5.1.0"
+  },
+  "scripts": {
+    "build": "web-ext build --source-dir ./extension/ --artifacts-dir ./dist --overwrite-dest",
+    "lint": "web-ext lint --source-dir ./extension/ -o text",
+    "start:firefox": "web-ext run --source-dir ./extension/ --browser-console ",
+    "start:chrome": "web-ext run --source-dir ./extension/ --target=chromium"
   }
 }
